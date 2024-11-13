@@ -12,11 +12,13 @@ export default function signUpPage() {
   const onSignUp = () => {};
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-3">
-        <div className=" bg-pink-600 h-96 w-80 px-3">
-        <h1 className="">signUp</h1>
-      <hr className="flex flex-col gap-3" />
+        <div className=" bg-pink-600 h-96 w-80 px-3 flex flex-col gap-2">
+        <h1 className="flex justify-center items-center mt-2 text-2xl font-bold mb-1">SIGN UP</h1>
+        <hr  className="mb-4"/>
+      
       <label htmlFor="username">username</label>
       <input
+      className="p-1 rounded-xl"
         id="username"
         type="text"
         value={user.username}
@@ -28,6 +30,7 @@ export default function signUpPage() {
 
       <label htmlFor="email">email</label>
       <input
+        className="p-1 rounded-xl"
         id="email"
         type="text"
         value={user.email}
@@ -39,6 +42,7 @@ export default function signUpPage() {
 
       <label htmlFor="password">password</label>
       <input
+          className="p-1 rounded-xl"
         id="password"
         type="text"
         value={user.password}
@@ -47,6 +51,13 @@ export default function signUpPage() {
         }}
         placeholder="password"
       />
+
+      <div className="flex flex-col justify-center items-center gap-2 ">
+      <button className="p-2 bg-white rounded-xl w-24 mt-3 text-pink-600 font-bold" onClick={onSignUp}  >SIGN UP</button>
+      <Link href="/login">Visit login page</Link>
+      </div>
+
+      
 
         </div>
       
