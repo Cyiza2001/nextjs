@@ -7,7 +7,6 @@ export default function signUpPage() {
   const [user, setUser] = React.useState({
     email: "",
     password: "",
- 
   });
   const onLogIn = () => {};
   return (
