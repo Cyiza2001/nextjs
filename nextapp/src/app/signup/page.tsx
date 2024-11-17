@@ -1,15 +1,22 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect} from "react";
 import { useRouter } from "next/navigation";
 import { axios } from "axios";
 export default function signUpPage() {
+  const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
     password: "",
     username: "",
   });
+  const [signupButton, setSignupButton] = React.useState(false)
   const onSignUp = () => {};
+  useEffect(() => {
+if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0) setSignupButton(true)
+  else setSignupButton(false)
+  },[user])
+
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-3">
         <div className=" bg-pink-600 h-96 w-80 px-3 flex flex-col gap-2">
@@ -53,7 +60,7 @@ export default function signUpPage() {
       />
 
       <div className="flex flex-col justify-center items-center gap-2 ">
-      <button className="p-2 bg-white rounded-xl w-24 mt-3 text-pink-600 font-bold" onClick={onSignUp}  >SIGN UP</button>
+      <button className="p-2 bg-white rounded-xl w-24 mt-3 text-pink-600 font-bold" onClick={onSignUp}  >{signupButton? "SIGN UP":"NO SINGN UP"}</button>
       <Link href="/login">Visit login page</Link>
       </div>
 
