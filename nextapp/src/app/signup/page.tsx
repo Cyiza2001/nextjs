@@ -11,7 +11,18 @@ export default function signUpPage() {
     username: "",
   });
   const [signupButton, setSignupButton] = React.useState(false)
-  const onSignUp = () => {};
+  const [loading, setLoading] = React.useState(false)
+  const onSignUp = () => {
+    try{
+
+    }
+    catch(err){
+
+    }
+    finally{
+      setLoading(false)
+    }
+  };
   useEffect(() => {
 if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0) setSignupButton(true)
   else setSignupButton(false)
@@ -20,7 +31,7 @@ if(user.email.length > 0 && user.password.length > 0 && user.username.length > 0
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-3">
         <div className=" bg-pink-600 h-96 w-80 px-3 flex flex-col gap-2">
-        <h1 className="flex justify-center items-center mt-2 text-2xl font-bold mb-1">SIGN UP</h1>
+        <h1 className="flex justify-center items-center mt-2 text-2xl font-bold mb-1">{loading ? "Processing": "SIGN UP"}</h1>
         <hr  className="mb-4"/>
       
       <label htmlFor="username">username</label>
